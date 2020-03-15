@@ -1,5 +1,3 @@
-# ToDo-List-With-API
-
 # TO-DO List
 Aplikacja wykorzystuje API: https://github.com/juniorstart/junior-backend
 
