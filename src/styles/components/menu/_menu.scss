@@ -1,0 +1,10 @@
+.nav {
+  display: flex;
+  &__ul {
+    list-style-type: none;
+  }
+  &__link {
+    text-decoration: none;
+    color: black;
+  }
+}
