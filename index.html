@@ -7,40 +7,7 @@
     <link rel="stylesheet" href="src/styles/index.scss" />
   </head>
   <body class="main-background">
-    <header class="header">
-      <h1 class="header__h1">
-        <span>Cow-Do List</span
-        ><img class="header__logo" src="src/styles/img/logo.png" />
-      </h1>
-    </header>
-    <main>
-      <section class="landingPage">
-        <img
-          class="landingPage__image"
-          src="src/styles/img/undraw_next_tasks_iubr.svg"
-        />
-        <div class="landingPage__box">
-          <button class="btn btn__primary" type="button">Join Us!</button>
-        </div>
-      </section>
-    </main>
-    <script src="src/scripts/index.js"></script>
-  </body>
-</html>
-<!-- <section>
-        <h2>Login</h2>
-        <form>
-          <div>
-            <label for="login-input">Enter your login here:</label>
-            <input type="text" name="login-input" />
-          </div>
-          <div>
-            <label for="password-input">Enter your password here:</label>
-            <input type="password" name="password-input" />
-          </div>
-          <button type="submit">Confirm</button>
-        </form>
-      </section>
+    <dialog id="js-modal" class="modal">
       <section>
         <h2>Register</h2>
         <form>
@@ -60,4 +27,43 @@
           </div>
           <button type="submit">Confirm</button>
         </form>
-      </section> -->
+      </section>
+    </dialog>
+    <header class="header">
+      <h1 class="header__h1">
+        <span>Cow-Do List</span
+        ><img class="header__logo" src="src/styles/img/logo.png" />
+      </h1>
+    </header>
+    <main>
+      <section class="landingPage">
+        <img
+          class="landingPage__image"
+          src="src/styles/img/undraw_next_tasks_iubr.svg"
+        />
+        <div class="landingPage__box">
+          <button class="btn btn__primary" type="button" id="js-turn-modal">
+            Join Us!
+          </button>
+        </div>
+      </section>
+    </main>
+    <script src="src/scripts/index.js"></script>
+    <script src="src/scripts/modal.js"></script>
+  </body>
+</html>
+<!-- <section>
+        <h2>Login</h2>
+        <form>
+          <div>
+            <label for="login-input">Enter your login here:</label>
+            <input type="text" name="login-input" />
+          </div>
+          <div>
+            <label for="password-input">Enter your password here:</label>
+            <input type="password" name="password-input" />
+          </div>
+          <button type="submit">Confirm</button>
+        </form>
+      </section>
+      -->
