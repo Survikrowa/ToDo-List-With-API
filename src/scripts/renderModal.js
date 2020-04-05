@@ -3,6 +3,24 @@ export const renderRegister = () => {
   <section class="modal__section">
   <h2>Register</h2>
     <form class="form">
+        <div class="form__input-container">
+        <label for="register-firstName-input">Enter your first name here:</label>
+        <input
+          class="form__input"
+          type="text"
+          name="register-firstName-input"
+          id="register-firstName-input"
+        />
+      </div>
+      <div class="form__input-container">
+        <label for="register-lastName-input">Enter your last name here:</label>
+        <input
+          class="form__input"
+          type="text"
+          name="register-lastName-input"
+          id="register-lastName-input"
+        />
+      </div>
       <div class="form__input-container">
         <label for="register-login-input">Enter your login here:</label>
         <input
