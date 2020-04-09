@@ -1,4 +1,8 @@
 import { renderLogin, renderRegister } from "./renderModal";
+import {
+  addEventListenerToLoginBtn,
+  addEventListenerToRegisterBtn
+} from "./form";
 
 const modalTurnBtn = document.querySelector("#js-turn-modal");
 const modal = document.querySelector("#js-modal");
@@ -32,20 +36,27 @@ const goToRegisterBtnHandler = () => {
   const goToRegisterBtn = getGoToRegBtn();
   applyEventListener(goToRegisterBtn, renderRegister, goToLoginBtnHandler);
   addEventListenerToCloseBtn();
+  addEventListenerToLoginBtn(modal);
 };
 
 const goToLoginBtnHandler = () => {
   const goToLoginBtn = getGoToLoginBtn();
   applyEventListener(goToLoginBtn, renderLogin, goToRegisterBtnHandler);
   addEventListenerToCloseBtn();
+  addEventListenerToRegisterBtn(modal);
+};
+
+const listenerFunction = (functionToRender, functionToGo) => {
+  render(functionToRender);
+  functionToGo();
 };
 
 const applyEventListener = (element, functionToRender, functionToGo) => {
   if (element) {
-    element.addEventListener("click", () => {
-      render(functionToRender);
-      functionToGo();
-    });
+    element.addEventListener(
+      "click",
+      listenerFunction.bind(this, functionToRender, functionToGo)
+    );
   }
 };
 

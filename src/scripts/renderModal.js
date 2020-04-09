@@ -2,14 +2,15 @@ export const renderRegister = () => {
   return `
   <section class="modal__section">
   <h2>Register</h2>
-    <form class="form">
+    <form class="form" id="js-form" action="" method="post">
         <div class="form__input-container">
         <label for="register-firstName-input">Enter your first name here:</label>
         <input
           class="form__input"
           type="text"
-          name="register-firstName-input"
+          name="register"
           id="register-firstName-input"
+          required=""
         />
       </div>
       <div class="form__input-container">
@@ -17,8 +18,9 @@ export const renderRegister = () => {
         <input
           class="form__input"
           type="text"
-          name="register-lastName-input"
+          name="register"
           id="register-lastName-input"
+          required=""
         />
       </div>
       <div class="form__input-container">
@@ -26,8 +28,9 @@ export const renderRegister = () => {
         <input
           class="form__input"
           type="text"
-          name="register-login-input"
+          name="register"
           id="register-login-input"
+          required=""
         />
       </div>
       <div class="form__input-container">
@@ -35,8 +38,9 @@ export const renderRegister = () => {
         <input
           class="form__input"
           type="email"
-          name="register-email-input"
+          name="register"
           id="register-email-input"
+          required=""
         />
       </div>
       <div class="form__input-container">
@@ -44,8 +48,9 @@ export const renderRegister = () => {
         <input
           class="form__input"
           type="password"
-          name="register-password-input"
+          name="register"
           id="register-password-input"
+          required=""
         />
       </div>
       <button type="button" class="btn btn__primary" value="login-btn" id="js-Go-login">
@@ -54,7 +59,7 @@ export const renderRegister = () => {
       <button
         class="btn btn__primary btn__primary-register"
         type="submit"
-        value="confirm-register-btn"
+        id="confirm-register-btn"
       >
         Register
       </button>
@@ -68,7 +73,7 @@ export const renderRegister = () => {
 export const renderLogin = () => {
   return `<section class="modal__section">
   <h2>Login</h2>
-  <form class="form">
+  <form class="form" id="js-form" action="" method="post">
     <div class="form__input-container">
       <label for="login-input">Enter your login here:</label>
       <input
@@ -76,6 +81,7 @@ export const renderLogin = () => {
         type="text"
         name="login-input"
         id="login-input"
+        required=""
       />
     </div>
     <div class="form__input-container">
@@ -83,8 +89,9 @@ export const renderLogin = () => {
       <input
         class="form__input"
         type="password"
-        name="password-input"
+        name="password"
         id="email-input"
+        required=""
       />
     </div>
     <button
@@ -98,7 +105,7 @@ export const renderLogin = () => {
     <button
       class="btn btn__primary btn__primary-register"
       type="submit"
-      value="confirm-login-btn"
+      id="confirm-login-btn"
     >
       Log in
     </button>
