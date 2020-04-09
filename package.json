@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "sass": "^1.26.3"
-  }
+  },
+  "browserslist": [
+    "last 1 Chrome versions"
+  ]
 }
