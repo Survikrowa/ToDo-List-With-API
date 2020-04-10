@@ -58,7 +58,7 @@ export const renderRegister = () => {
       </button>
       <button
         class="btn btn__primary btn__primary-register"
-        type="submit"
+        type="button"
         id="confirm-register-btn"
       >
         Register
@@ -102,13 +102,13 @@ export const renderLogin = () => {
     >
       Go to register
     </button>
-    <button
-      class="btn btn__primary btn__primary-register"
-      type="submit"
-      id="confirm-login-btn"
-    >
-      Log in
-    </button>
+    <a
+    class="btn btn__primary btn__primary-register"
+    id="confirm-login-btn"
+    href="public/toDoLists.html"
+  >
+    Log in
+  </a>
   </form>
   <button type="button" class="close-btn-container" value="close-btn">
     <img id="close-btn" src="/close-icon.a7050b64.svg" />

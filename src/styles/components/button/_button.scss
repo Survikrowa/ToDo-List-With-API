@@ -11,5 +11,15 @@
     background: linear-gradient(90deg, #f5f9ff 41.26%, #e7f1fe 100%);
     border: 1px solid black;
     box-shadow: 5px 5px 5px black;
+    &-register {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: black;
+      &:visited {
+        color: black;
+      }
+    }
   }
 }
