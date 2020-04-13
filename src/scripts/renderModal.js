@@ -105,7 +105,7 @@ export const renderLogin = () => {
     <a
     class="btn btn__primary btn__primary-register"
     id="confirm-login-btn"
-    href="public/toDoLists.html"
+    href="#"
   >
     Log in
   </a>
