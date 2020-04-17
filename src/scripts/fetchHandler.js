@@ -8,12 +8,13 @@ export const getForm = () => {
   return document.querySelector("#js-form");
 };
 
-export const apiController = (url, fetchMethod) => {
+export const loginController = (url, fetchMethod) => {
   const form = getForm();
   const formElements = Array.from(form.elements)
     .filter(el => el.name)
     .map(el => ({ [el.name]: el.value }))
-    .reduce((acc, el) => Object.assign(acc, el), {});
+    .reduce((acc, el) => ({ user: { ...acc.user, ...el } }), { user: {} });
+  //.reduce((acc, el) => Object.assign(acc, el), {});
   console.log(formElements);
   //console.log(sendApiRequest(url, formElements, fetchMethod));
 };

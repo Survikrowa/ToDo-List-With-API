@@ -1,4 +1,4 @@
-import { apiController, authorized } from "./fetchHandler";
+import { loginController, authorized } from "./fetchHandler";
 import { navigate } from "./router";
 
 const getLoginBtn = modal => {
@@ -13,7 +13,7 @@ export const addEventListenerToLoginBtn = modal => {
   const loginBtn = getLoginBtn(modal);
   loginBtn.addEventListener("click", e => {
     e.preventDefault();
-    apiController("Login", "POST");
+    loginController("Login", "POST");
     if (authorized === true) {
       navigate("/todolists");
     }
@@ -24,6 +24,6 @@ export const addEventListenerToRegisterBtn = modal => {
   const registerBtn = getRegisterBtn(modal);
   registerBtn.addEventListener("click", e => {
     e.preventDefault();
-    apiController("register", "POST");
+    loginController("register", "POST");
   });
 };
