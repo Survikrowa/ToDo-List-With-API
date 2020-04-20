@@ -8,7 +8,7 @@ export const renderRegister = () => {
         <input
           class="form__input"
           type="text"
-          name="register"
+          name="firstName"
           id="register-firstName-input"
           required=""
         />
@@ -18,7 +18,7 @@ export const renderRegister = () => {
         <input
           class="form__input"
           type="text"
-          name="register"
+          name="lastName"
           id="register-lastName-input"
           required=""
         />
@@ -28,7 +28,7 @@ export const renderRegister = () => {
         <input
           class="form__input"
           type="text"
-          name="register"
+          name="email"
           id="register-login-input"
           required=""
         />
@@ -38,7 +38,7 @@ export const renderRegister = () => {
         <input
           class="form__input"
           type="email"
-          name="register"
+          name="login"
           id="register-email-input"
           required=""
         />
@@ -48,7 +48,7 @@ export const renderRegister = () => {
         <input
           class="form__input"
           type="password"
-          name="register"
+          name="password"
           id="register-password-input"
           required=""
         />
@@ -79,7 +79,7 @@ export const renderLogin = () => {
       <input
         class="form__input"
         type="text"
-        name="login-input"
+        name="login"
         id="login-input"
         required=""
       />
