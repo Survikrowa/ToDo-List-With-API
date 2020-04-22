@@ -4,7 +4,7 @@ import {
   addEventListenerToRegisterBtn
 } from "./form";
 
-const getModal = () => {
+export const getModal = () => {
   return document.querySelector("#js-modal");
 };
 
@@ -79,6 +79,7 @@ const applyEventListener = (element, functionToRender, functionToGo) => {
 };
 
 const render = functionName => {
+  const modal = getModal();
   modal.innerHTML = "";
   modal.insertAdjacentHTML("beforeend", functionName());
 };
