@@ -13,7 +13,7 @@ export const addEventListenerToLoginBtn = modal => {
   const loginBtn = getLoginBtn(modal);
   loginBtn.addEventListener("click", async e => {
     e.preventDefault();
-    const apiData = await loginController("Login", "POST");
+    const apiData = await loginController("Login");
 
     if (!apiData.errors) {
       navigate("/todolists");
@@ -25,7 +25,7 @@ export const addEventListenerToRegisterBtn = modal => {
   const registerBtn = getRegisterBtn(modal);
   registerBtn.addEventListener("click", async e => {
     e.preventDefault();
-    const apiData = await registerController("Register", "POST");
+    const apiData = await registerController("Register");
     if (!apiData.errors) {
       const modal = getModal();
       modal.close();

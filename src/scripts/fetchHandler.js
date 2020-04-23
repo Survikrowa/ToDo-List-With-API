@@ -13,30 +13,30 @@ const getMappedFormElements = () => {
 };
 let apiResponse;
 
-export const loginController = async (url, fetchMethod) => {
+export const loginController = async url => {
   const formElements = getMappedFormElements();
   apiResponse = await sendApiRequest(url, {
-    method: fetchMethod,
+    method: "POST",
     data: formElements
   });
   return apiResponse;
 };
 
-export const registerController = async (url, fetchMethod) => {
+export const registerController = async url => {
   const formElements = getMappedFormElements();
   return sendApiRequest(url, {
-    method: fetchMethod,
+    method: "POST",
     data: { user: formElements }
   });
 };
 
-export const deleteRequest = (url, fetchMethod) => {
-  sendApiRequestWithToken(url, apiResponse, { method: fetchMethod });
+export const deleteRequest = url => {
+  sendApiRequestWithToken(url, apiResponse, { method: "DELETE" });
 };
 
-export const postToDoList = async (url, fetchMethod, listName) => {
+export const postToDoList = async (url, listName) => {
   await sendApiRequestWithToken(url, apiResponse, {
-    method: fetchMethod,
+    method: "POST",
     data: {
       name: listName,
       tasks: [],
@@ -50,9 +50,9 @@ export const getToDoList = url => {
   return sendApiRequestWithToken(url, apiResponse, { headers: {} });
 };
 
-export const postTask = (url, fetchMethod, data) => {
+export const postTask = (url, data) => {
   sendApiRequestWithToken(url, apiResponse, {
-    method: fetchMethod,
+    method: "POST",
     data: data,
     headers: {}
   });

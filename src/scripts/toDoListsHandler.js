@@ -93,7 +93,7 @@ const addTaskBtnHandler = async () => {
   const input = getInput();
   if (getInputValue()) {
     const inputValue = getInputValue();
-    await postToDoList("api/todolists/todolist", "POST", inputValue);
+    await postToDoList("api/todolists/todolist", inputValue);
     const apiData = await getToDoList("api/todolists");
     renderHandler(apiData);
     clearInput(input);
@@ -110,20 +110,20 @@ const addListenerToAddTaskBtn = element => {
 
 const isDeleteTaskListBtn = e => {
   const listId = getCurrentToDoListId(e);
-  deleteRequest(`api/todolists/${listId}`, "DELETE");
+  deleteRequest(`api/todolists/${listId}`);
   deleteTaskList(e);
 };
 
 const isDeleteTaskBtn = e => {
   const taskId = getCurrentTaskId(e);
-  deleteRequest(`api/todolists/task/${taskId}`, "DELETE");
+  deleteRequest(`api/todolists/task/${taskId}`);
   deleteTask(e);
 };
 
 const isAddTaskBtn = async e => {
   const listId = getCurrentToDoListId(e);
   const taskInputValue = getClosestInputValue(e);
-  postTask("api/todolists/task", "POST", {
+  postTask("api/todolists/task", {
     description: taskInputValue,
     toDoListId: listId
   });
