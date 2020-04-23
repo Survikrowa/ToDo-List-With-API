@@ -13,9 +13,6 @@ const getMappedFormElements = () => {
 };
 let apiResponse;
 
-const MOCK =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE1ODc0Nzc2OTcsImV4cCI6MTU4NzY1MDQ5NywiaWF0IjoxNTg3NDc3Njk3fQ.LHsetSxqiOHdRAknmAX5bHGH0BZicdHov0nBfWO6gpc";
-
 export const loginController = async (url, fetchMethod) => {
   const formElements = getMappedFormElements();
   apiResponse = await sendApiRequest(url, {
@@ -27,19 +24,18 @@ export const loginController = async (url, fetchMethod) => {
 
 export const registerController = async (url, fetchMethod) => {
   const formElements = getMappedFormElements();
-  console.log(formElements, url, fetchMethod);
   return await sendApiRequest(url, {
     method: fetchMethod,
     data: { user: formElements }
   });
 };
 
-export const deleteToDoList = (url, fetchMethod) => {
-  sendApiRequestWithToken(url, MOCK, { method: fetchMethod });
+export const deleteRequest = (url, fetchMethod) => {
+  sendApiRequestWithToken(url, apiResponse, { method: fetchMethod });
 };
 
-export const postToDoList = (url, fetchMethod, listName) => {
-  sendApiRequestWithToken(url, MOCK, {
+export const postToDoList = async (url, fetchMethod, listName) => {
+  await sendApiRequestWithToken(url, apiResponse, {
     method: fetchMethod,
     data: {
       name: listName,
@@ -51,7 +47,15 @@ export const postToDoList = (url, fetchMethod, listName) => {
 };
 
 export const getToDoList = url => {
-  return sendApiRequestWithToken(url, MOCK, { headers: {} });
+  return sendApiRequestWithToken(url, apiResponse, { headers: {} });
+};
+
+export const postTask = (url, fetchMethod, data) => {
+  sendApiRequestWithToken(url, apiResponse, {
+    method: fetchMethod,
+    data: data,
+    headers: {}
+  });
 };
 
 async function sendApiRequestWithToken(url, token, options) {
@@ -68,7 +72,6 @@ async function sendApiRequest(
   url,
   { method = "GET", data = undefined, headers = {} } = {}
 ) {
-  console.log(url, method, data);
   const res = await fetch(`${API_URL}/${url}`, {
     method,
     headers: {
