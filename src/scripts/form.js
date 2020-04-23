@@ -1,6 +1,6 @@
-import { loginController, authorized } from "./fetchHandler";
+import { loginController, registerController } from "./fetchHandler";
 import { navigate } from "./router";
-
+import { getModal } from "./modal";
 const getLoginBtn = modal => {
   return modal.querySelector("#confirm-login-btn");
 };
@@ -11,10 +11,11 @@ const getRegisterBtn = modal => {
 
 export const addEventListenerToLoginBtn = modal => {
   const loginBtn = getLoginBtn(modal);
-  loginBtn.addEventListener("click", e => {
+  loginBtn.addEventListener("click", async e => {
     e.preventDefault();
-    loginController("Login", "POST");
-    if (authorized === true) {
+    const apiData = await loginController("Login", "POST");
+
+    if (!apiData.errors) {
       navigate("/todolists");
     }
   });
@@ -22,8 +23,12 @@ export const addEventListenerToLoginBtn = modal => {
 
 export const addEventListenerToRegisterBtn = modal => {
   const registerBtn = getRegisterBtn(modal);
-  registerBtn.addEventListener("click", e => {
+  registerBtn.addEventListener("click", async e => {
     e.preventDefault();
-    loginController("register", "POST");
+    const apiData = await registerController("Register", "POST");
+    if (!apiData.errors) {
+      const modal = getModal();
+      modal.close();
+    }
   });
 };
