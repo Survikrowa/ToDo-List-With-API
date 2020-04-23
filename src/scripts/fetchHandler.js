@@ -24,7 +24,7 @@ export const loginController = async (url, fetchMethod) => {
 
 export const registerController = async (url, fetchMethod) => {
   const formElements = getMappedFormElements();
-  return await sendApiRequest(url, {
+  return sendApiRequest(url, {
     method: fetchMethod,
     data: { user: formElements }
   });

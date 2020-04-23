@@ -38,18 +38,26 @@ const getTaskRenderTarget = taskListId => {
 };
 
 const deleteTaskList = e => {
-  e.target.parentNode.parentNode.remove();
+  if (e.target.parentNode.parentNode.classList.contains("toDoTask")) {
+    e.target.parentNode.parentNode.remove();
+  }
 };
 const deleteTask = e => {
-  e.target.parentNode.remove();
+  if (e.target.parentNode.classList.contains("task")) {
+    e.target.parentNode.remove();
+  }
 };
 
 const getCurrentToDoListId = e => {
-  return e.target.parentNode.parentNode.dataset.id;
+  if (e.target.parentNode.parentNode.classList.contains("toDoTask")) {
+    return e.target.parentNode.parentNode.dataset.id;
+  }
 };
 
 const getCurrentTaskId = e => {
-  return e.target.parentNode.dataset.id;
+  if (e.target.parentNode.classList.contains("task")) {
+    return e.target.parentNode.dataset.id;
+  }
 };
 
 const renderList = (apiResponse, element) => {
@@ -63,28 +71,28 @@ const renderTask = (apiResponse, element) => {
   });
 };
 
-const clearList = element => {
-  element.innerHTML = "";
+const clearDiv = div => {
+  div.innerHTML = "";
 };
 
 const renderHandler = apiResponse => {
   const taskListRenderTarget = getTaskListRenderTarget();
-  clearList(taskListRenderTarget);
+  clearDiv(taskListRenderTarget);
   renderList(apiResponse, taskListRenderTarget);
-  for (let i = 0; i < apiResponse.length; i++) {
-    const taskRenderTarget = getTaskRenderTarget(apiResponse[i].id);
-    renderTask(apiResponse[i].tasks, taskRenderTarget);
-  }
+  apiResponse.forEach(data => {
+    const taskRenderTarget = getTaskRenderTarget(data.id);
+    renderTask(data.tasks, taskRenderTarget);
+  });
 };
 
-const clearInput = element => {
-  element.value = "";
+const clearInput = input => {
+  input.value = "";
 };
 
 const addTaskBtnHandler = async () => {
-  const inputValue = getInputValue();
   const input = getInput();
-  if (inputValue) {
+  if (getInputValue()) {
+    const inputValue = getInputValue();
     await postToDoList("api/todolists/todolist", "POST", inputValue);
     const apiData = await getToDoList("api/todolists");
     renderHandler(apiData);
@@ -100,24 +108,36 @@ const addListenerToAddTaskBtn = element => {
   element.addEventListener("click", addTaskBtnHandler);
 };
 
-const taskListBtnHandler = async e => {
+const isDeleteTaskListBtn = e => {
+  const listId = getCurrentToDoListId(e);
+  deleteRequest(`api/todolists/${listId}`, "DELETE");
+  deleteTaskList(e);
+};
+
+const isDeleteTaskBtn = e => {
+  const taskId = getCurrentTaskId(e);
+  deleteRequest(`api/todolists/task/${taskId}`, "DELETE");
+  deleteTask(e);
+};
+
+const isAddTaskBtn = async e => {
+  const listId = getCurrentToDoListId(e);
+  const taskInputValue = getClosestInputValue(e);
+  postTask("api/todolists/task", "POST", {
+    description: taskInputValue,
+    toDoListId: listId
+  });
+  const apiData = await getToDoList("api/todolists");
+  renderHandler(apiData);
+};
+
+const taskListBtnHandler = e => {
   if (e.target.classList.contains("js-delete-task-list-btn")) {
-    const listId = getCurrentToDoListId(e);
-    deleteRequest(`api/todolists/${listId}`, "DELETE");
-    deleteTaskList(e);
+    isDeleteTaskListBtn(e);
   } else if (e.target.classList.contains("js-delete-task-btn")) {
-    const taskId = getCurrentTaskId(e);
-    deleteRequest(`api/todolists/task/${taskId}`, "DELETE");
-    deleteTask(e);
+    isDeleteTaskBtn(e);
   } else if (e.target.classList.contains("js-add-task")) {
-    const listId = getCurrentToDoListId(e);
-    const taskInputValue = getClosestInputValue(e);
-    postTask("api/todolists/task", "POST", {
-      description: taskInputValue,
-      toDoListId: listId
-    });
-    const apiData = await getToDoList("api/todolists");
-    renderHandler(apiData);
+    isAddTaskBtn(e);
   }
 };
 
