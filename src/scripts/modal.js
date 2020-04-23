@@ -64,16 +64,16 @@ const goToLoginBtnHandler = () => {
   addEventListenerToRegisterBtn(modal);
 };
 
-const listenerFunction = (functionToRender, functionToGo) => {
-  render(functionToRender);
-  functionToGo();
+const listenerFunction = (callbackRender, callback) => {
+  render(callbackRender);
+  callback();
 };
 
-const applyEventListener = (element, functionToRender, functionToGo) => {
+const applyEventListener = (element, callbackRender, callback) => {
   if (element) {
     element.addEventListener(
       "click",
-      listenerFunction.bind(this, functionToRender, functionToGo)
+      listenerFunction.bind(this, callbackRender, callback)
     );
   }
 };
