@@ -1,0 +1,11 @@
+.intro-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  &__image {
+    width: 256px;
+    height: 256px;
+  }
+}

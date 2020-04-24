@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+}
+
+.main-background {
+  background: linear-gradient(90deg, #f5f9ff 41.26%, #e7f1fe 100%);
+}
+
+.close-btn-container {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  width: 2em;
+  background: none;
+  border: none;
+}
