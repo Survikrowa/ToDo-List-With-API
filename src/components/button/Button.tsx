@@ -1,7 +1,8 @@
 import { MouseEvent } from "react";
+import styles from "./button.module.scss";
 
 type ButtonProps = {
-  onClick?: (
+  onClick: (
     event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>
   ) => void | undefined;
   type: "submit" | "button";
@@ -10,7 +11,7 @@ type ButtonProps = {
 
 export const Button = ({ onClick, type, children }: ButtonProps) => {
   return (
-    <button onClick={onClick} type={type}>
+    <button onClick={onClick} type={type} className={styles.button}>
       {children}
     </button>
   );
