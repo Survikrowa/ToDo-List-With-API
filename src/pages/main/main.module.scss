@@ -1,0 +1,23 @@
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  font-size: 3rem;
+  color: white;
+  -webkit-text-stroke: 2px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.headerText {
+  margin: 5px;
+  color: #dc2626;
+}

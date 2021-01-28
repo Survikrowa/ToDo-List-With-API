@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { LoginForm } from "./login/LoginForm";
+import { LoginForm } from "./LoginForm";
 import { forms } from "../../constants/forms";
+import { RegisterForm } from "./RegisterForm";
 
 export const FormContainer = () => {
   const [currentForm, setCurrentForm] = useState(forms.loginForm);
@@ -10,7 +11,7 @@ export const FormContainer = () => {
       {currentForm === forms.loginForm ? (
         <LoginForm handleFormChange={setCurrentForm} />
       ) : (
-        "register form"
+        <RegisterForm handleFormChange={setCurrentForm} />
       )}
     </>
   );
