@@ -1,4 +1,4 @@
-export const getApiErrorMessage = (errorCode: number) => {
+export const getApiResponseMessage = (errorCode: number) => {
   let errorMessage;
 
   switch (errorCode) {
