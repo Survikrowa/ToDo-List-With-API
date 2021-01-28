@@ -1,6 +1,6 @@
 type Fetcher = {
   requestOptions?: requestOptions;
-  body: object | null;
+  body?: object | null;
   headers?: Headers;
 };
 
