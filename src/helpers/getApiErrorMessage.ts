@@ -3,7 +3,7 @@ export const getApiErrorMessage = (errorCode: number) => {
 
   switch (errorCode) {
     case 500: {
-      errorMessage = "There is no user with provided credentials";
+      errorMessage = "Something went wrong with the server.";
       break;
     }
     default: {
