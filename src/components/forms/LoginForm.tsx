@@ -49,8 +49,7 @@ export const LoginForm = ({ handleFormChange }: LoginFormProps) => {
         history.push("/dashboard");
       }
     } catch (error) {
-      const errorMessage = getApiResponseMessage(error);
-      setError(errorMessage);
+      setError(error.message);
     }
   };
   return (

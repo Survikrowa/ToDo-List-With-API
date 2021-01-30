@@ -49,7 +49,7 @@ export const fetcher = async (
     return getJson(apiResponse);
   }
   //TODO: Implement proper error message later. Probably with class extend
-  throw apiResponse.status;
+  throw Error(apiResponse.statusText);
 };
 
 const getJson = async (res: Response): Promise<unknown | undefined> => {

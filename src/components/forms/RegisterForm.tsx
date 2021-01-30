@@ -50,8 +50,7 @@ export const RegisterForm = ({ handleFormChange }: RegisterFormProps) => {
         setError(null);
       }
     } catch (error) {
-      const errorMessage = getApiResponseMessage(error);
-      setError(errorMessage);
+      setError(error.message);
     }
   };
 
